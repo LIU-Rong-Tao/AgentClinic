@@ -34,9 +34,18 @@ TypeScript 是编写代码的语言，Node.js 是执行代码的运行时，Hono
 
 技术选型阶段不安装依赖；已授权实现时仅安装当前功能所需依赖。具体版本、命令和运行配置在相应功能阶段结合课程文件与本机环境核对，不提前猜测。若后续需要改变技术路线，应说明对跟课的影响并先讨论。
 
+## 组件输入约定（2026-10-15）
+
+- 组件需要接收参数（props）时，在组件文件中用独立命名的 TypeScript `type` 定义输入，例如 `LayoutProps`，并在组件参数处引用；不将字段类型直接内联在参数声明中。
+- 无参数组件不添加空的 Props 类型，不为满足这条约定而增加尚无需求的参数。只有确有跨文件复用需要时，才考虑导出或进一步提取类型。
+- 调整 props 定义后，运行 `pnpm typecheck` 和 `pnpm test`，检查调用方与现有行为。TypeScript 类型只提供静态检查，不能代替外部输入的运行时校验。
+
+本约定来自课程第二功能阶段的提示词，是本项目采用的代码组织方式。当前 Layout、Header、Main、Footer 均无参数，本小步只记录约定并验证现状；在后续业务组件确实需要输入时应用。
+
 ## 依据
 
 - [课程保存的技术栈](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video06_Feature_Specification/specs/tech-stack.md)
+- [第二功能阶段提示词：独立 props 类型与重新测试](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video10_The_second_feature_phase/prompts.md)
 
 本文保留课程技术选择，补充中文用途说明和类型检查提醒。
 

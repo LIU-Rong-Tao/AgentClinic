@@ -13,6 +13,12 @@ AI agents 也需要休息——尤其是在刚总结完四百页材料，又收�
 - 为 agent 预约咨询，并向员工提供日常管理仪表盘。
 - 提供可靠、外观友好、适配现代浏览器的响应式体验；手机、平板、桌面均能阅读内容和完成主要操作，具体视口与检查方式见 tech-stack.md。
 
+## 品牌与阅读体验
+
+2026-10-15 按课程 The second feature phase 的橙黑品牌要求，经选项讨论采用浅色背景、近黑正文与橙色强调。保留安静的阅读风格，橙色用于品牌及少量装饰，不用于大段小字号文字；辅助文字使用清晰可读的深灰色。
+
+颜色同时考虑品牌辨识与阅读对比度。当前首页的落地与检查记录见对应功能规格，后续页面沿用这一原则。
+
 ## 服务谁
 
 故事中的使用者包括需要帮助的 agents、提供疗法的治疗师和维护诊所的员工。实际目标受众是学习 spec 驱动开发的课程学生，以及在会议展台演示 AI 编程的开发者。
@@ -33,5 +39,6 @@ AI agents 也需要休息——尤其是在刚总结完四百页材料，又收�
 
 - [本节 README](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video05_Creating_the_Constitution/README.md)
 - [本节提示词](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video05_Creating_the_Constitution/prompts.md)
+- [第二功能阶段提示词：橙黑品牌色](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video10_The_second_feature_phase/prompts.md)
 
 本文是依据课程材料与本次问答形成的中文适配稿，不是课程原文翻译。
