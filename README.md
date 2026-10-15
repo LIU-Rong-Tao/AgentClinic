@@ -43,3 +43,8 @@ $pnpm = 'C:\Users\jiaxiang\.cache\codex-runtimes\codex-primary-runtime\dependenc
 pnpm-workspace.yaml 将依赖存储限定在 work/pnpm-store，并只允许 esbuild 的安装脚本。node_modules、dist 和 work 不纳入 Git。
 
 当前没有实现数据库或业务入口，阶段 1 已通过功能验证；未部署、未推送远程。
+
+
+## 合并前变更日志
+
+在本项目上下文中手动调用 $agentclinic-changelog。技能文件位于 .agents/skills/agentclinic-changelog/SKILL.md，按日期维护 CHANGELOG.md；不自动提交或合并。若当前会话尚未发现新技能，可明确要求读取该文件并按其步骤执行，不声称菜单已经自动刷新。

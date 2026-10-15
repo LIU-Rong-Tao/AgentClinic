@@ -39,3 +39,12 @@ TypeScript 是编写代码的语言，Node.js 是执行代码的运行时，Hono
 - [课程保存的技术栈](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video06_Feature_Specification/specs/tech-stack.md)
 
 本文保留课程技术选择，补充中文用途说明和类型检查提醒。
+
+
+## 项目共同验证要求（2026-10-15）
+
+- 使用 Vitest；package.json 的 test 脚本执行 vitest run，通过 pnpm test 运行。独立类型检查和构建仍分别运行。
+- 保留已有测试，新功能按适用性覆盖成功路径、重要无效输入和数据副作用。不以测试数量或整页快照代替行为检查。
+- 布局与响应式用真实浏览器验证，Vitest 不替代视觉检查。
+- 产品页面检查 375×812、768×1024、1440×900 CSS 像素视口。文字与主要操作可用，页面无意外横向溢出；宽表格允许在明确的局部容器内横向滚动。验收视口不强制成为 CSS 断点。
+- 合并前手动调用项目内 $agentclinic-changelog 更新根目录 CHANGELOG.md。技能不自动提交或合并。
