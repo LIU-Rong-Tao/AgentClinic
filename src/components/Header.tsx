@@ -13,6 +13,12 @@ export function Header() {
           <li>
             <a href="/ailments">病症</a>
           </li>
+          <li>
+            <a href="/therapies">疗法</a>
+          </li>
+          <li>
+            <a href="/dashboard">员工仪表盘</a>
+          </li>
         </ul>
       </nav>
     </header>

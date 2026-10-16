@@ -65,6 +65,9 @@ describe('病症与 Agent 关联', () => {
     expect(migrate(db)).toEqual([
       '002_create_ailments.sql',
       '003_create_agent_ailments.sql',
+      '004_create_therapies.sql',
+      '005_create_ailment_therapies.sql',
+      '006_appointments.sql',
     ]);
     expect(migrate(db)).toEqual([]);
     expect(snapshot(db)).toEqual({
@@ -150,6 +153,8 @@ describe('病症与 Agent 关联', () => {
       agents: { inserted: 6, skipped: 0 },
       ailments: { inserted: 6, skipped: 0 },
       links: { inserted: 8, skipped: 0 },
+      therapies: { inserted: 8, skipped: 0 },
+      recommendations: { inserted: 9, skipped: 0 },
     });
     const before = snapshot(db);
     expect(before.agents).toHaveLength(6);
@@ -201,6 +206,8 @@ describe('病症与 Agent 关联', () => {
       agents: { inserted: 0, skipped: 6 },
       ailments: { inserted: 0, skipped: 6 },
       links: { inserted: 0, skipped: 8 },
+      therapies: { inserted: 0, skipped: 8 },
+      recommendations: { inserted: 0, skipped: 9 },
     });
     expect(snapshot(reopened)).toEqual(before);
   });
@@ -235,6 +242,8 @@ describe('病症与 Agent 关联', () => {
       agents: { inserted: 5, skipped: 1 },
       ailments: { inserted: 5, skipped: 1 },
       links: { inserted: 8, skipped: 0 },
+      therapies: { inserted: 8, skipped: 0 },
+      recommendations: { inserted: 9, skipped: 0 },
     });
     const complete = snapshot(db);
     expect(complete.agents).toHaveLength(7);
@@ -247,12 +256,15 @@ describe('病症与 Agent 关联', () => {
     expect(complete.links).toEqual(expect.arrayContaining(existing.links));
     db.exec(`
       DELETE FROM agent_ailments WHERE ailment_id = 4 OR (agent_id = 1 AND ailment_id = 2);
+      DELETE FROM ailment_therapies WHERE ailment_id = 4;
       DELETE FROM ailments WHERE id = 4;
     `);
     expect(seed(db)).toEqual({
       agents: { inserted: 0, skipped: 6 },
       ailments: { inserted: 1, skipped: 5 },
       links: { inserted: 2, skipped: 6 },
+      therapies: { inserted: 0, skipped: 8 },
+      recommendations: { inserted: 2, skipped: 7 },
     });
     expect(snapshot(db)).toEqual(complete);
   });
@@ -296,6 +308,8 @@ describe('病症与 Agent 关联', () => {
       agents: { inserted: 6, skipped: 0 },
       ailments: { inserted: 6, skipped: 0 },
       links: { inserted: 8, skipped: 0 },
+      therapies: { inserted: 8, skipped: 0 },
+      recommendations: { inserted: 9, skipped: 0 },
     });
     expect(snapshot(db).agents).toEqual(expect.arrayContaining(before.agents));
     expect(snapshot(db).ailments).toEqual(

@@ -6,9 +6,10 @@ import { Footer } from './Footer.js';
 type LayoutProps = {
   title: string;
   children: Child;
+  showFooter?: boolean;
 };
 
-export function Layout({ title, children }: LayoutProps) {
+export function Layout({ title, children, showFooter = true }: LayoutProps) {
   return (
     <>
       {html`<!DOCTYPE html>`}
@@ -24,7 +25,7 @@ export function Layout({ title, children }: LayoutProps) {
           <div class="page">
             <Header />
             <Main>{children}</Main>
-            <Footer />
+            {showFooter && <Footer />}
           </div>
         </body>
       </html>

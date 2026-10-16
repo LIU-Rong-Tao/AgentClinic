@@ -1,12 +1,21 @@
-import type { AgentListItem, Ailment } from '../db/types.js';
+import type {
+  AgentListItem,
+  Ailment,
+  RecommendedTherapy,
+} from '../db/types.js';
 import { Layout } from './Layout.js';
 
 type AgentDetailProps = {
   agent: AgentListItem;
   ailments: Ailment[];
+  recommendations: RecommendedTherapy[];
 };
 
-export function AgentDetail({ agent, ailments }: AgentDetailProps) {
+export function AgentDetail({
+  agent,
+  ailments,
+  recommendations,
+}: AgentDetailProps) {
   return (
     <Layout title={`${agent.name} · AgentClinic`}>
       <article class="agent-detail">
@@ -30,6 +39,36 @@ export function AgentDetail({ agent, ailments }: AgentDetailProps) {
               </li>
             ))}
           </ul>
+        )}
+        <section aria-labelledby="recommendations-heading">
+          <h3 id="recommendations-heading">推荐疗法</h3>
+          {recommendations.length === 0 ? (
+            <p>
+              {ailments.length === 0
+                ? '尚未记录病症，暂无推荐疗法'
+                : '当前病症暂无匹配的推荐疗法'}
+            </p>
+          ) : (
+            <ul class="therapy-recommendations">
+              {recommendations.map((therapy) => (
+                <li key={therapy.id}>
+                  <h4>{therapy.name}</h4>
+                  <p>{therapy.description}</p>
+                  <p>
+                    匹配病症：
+                    {therapy.matchedAilments
+                      .map((ailment) => ailment.name)
+                      .join('、')}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+        {recommendations.length > 0 && (
+          <p>
+            <a href={`/agents/${agent.id}/appointments/new`}>创建预约</a>
+          </p>
         )}
       </article>
       <p>

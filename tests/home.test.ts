@@ -44,7 +44,13 @@ it('提供首页导航，并按基础样式、品牌样式的顺序加载本地 
   const links = [...html.matchAll(/<a[^>]*href="([^"]+)"/g)].map(
     (match) => match[1],
   );
-  expect(links).toEqual(['/', '/agents', '/ailments']);
+  expect(links).toEqual([
+    '/',
+    '/agents',
+    '/ailments',
+    '/therapies',
+    '/dashboard',
+  ]);
   expect(html).toMatch(
     /<footer>[\s\S]*?AgentClinic is open for business[\s\S]*?<\/footer>/,
   );

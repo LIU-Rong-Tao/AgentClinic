@@ -10,6 +10,10 @@
   --pico-color: var(--ink);
   --pico-muted-color: var(--muted);
   --pico-primary: var(--brand);
+  --pico-primary-background: var(--brand);
+  --pico-primary-border: var(--brand);
+  --pico-primary-hover-background: var(--brand-hover);
+  --pico-primary-hover-border: var(--brand-hover);
   --pico-primary-hover: var(--brand-hover);
   --pico-primary-underline: var(--brand);
   --pico-primary-hover-underline: var(--brand-hover);
@@ -52,11 +56,24 @@ h1 {
 .site-nav {
   margin-bottom: 24px;
 }
+.site-nav ul {
+  flex-wrap: wrap;
+}
+.therapy-recommendations > li {
+  margin-top: 24px;
+}
+.therapy-recommendations h4,
+.therapy-recommendations p {
+  margin-bottom: 8px;
+}
 .site-nav a {
   min-height: 44px;
   text-underline-offset: 0.2em;
 }
 a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
 .agent-table-region:focus-visible,
 .ailment-table-region:focus-visible {
   outline: 2px solid var(--brand);
@@ -123,4 +140,28 @@ a:focus-visible,
   border-radius: 50%;
   background: var(--brand);
   margin-right: 10px;
+}
+
+.dashboard-table-region {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.dashboard-table-region:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+}
+.dashboard-table {
+  min-width: 680px;
+  table-layout: fixed;
+}
+.dashboard-table th,
+.dashboard-table td {
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+.appointment-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
 }

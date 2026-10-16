@@ -75,6 +75,8 @@ describe('Agent 列表页', () => {
       '/',
       '/agents',
       '/ailments',
+      '/therapies',
+      '/dashboard',
       '/agents/4',
       '/agents/1',
       '/agents/5',

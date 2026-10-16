@@ -10,3 +10,13 @@ export type Ailment = {
   name: string;
   description: string;
 };
+
+export type Therapy = {
+  id: number;
+  name: string;
+  description: string;
+};
+
+export type RecommendedTherapy = Therapy & {
+  matchedAilments: { id: number; name: string }[];
+};

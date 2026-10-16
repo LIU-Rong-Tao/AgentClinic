@@ -15,6 +15,12 @@ try {
   console.log(
     `示例关联：新增 ${result.links.inserted}，跳过 ${result.links.skipped}。`,
   );
+  console.log(
+    `疗法示例：新增 ${result.therapies.inserted}，跳过 ${result.therapies.skipped}。`,
+  );
+  console.log(
+    `推荐关联：新增 ${result.recommendations.inserted}，跳过 ${result.recommendations.skipped}。`,
+  );
   console.log(`数据库：${db.name}`);
 } finally {
   db.close();
