@@ -1,5 +1,19 @@
 # AgentClinic
 
+## 当前交付状态（2026-10-16）
+
+已完成 MVP、访客反馈与客户评价，当前 100 项测试、类型检查、构建和默认格式检查通过。反馈和评价均已通过用户体验验收。下方阶段记录保留历史状态；最新事实以本节及各功能验收记录为准。
+
+- `/feedback` 收集昵称、内容和评分，员工从仪表盘进入 `/dashboard/feedback` 查看。
+- `/reviews` 展示 3 条明确标注为虚构的评价，与真实访客反馈分离。
+- 项目内 `.agents/skills/feature-spec/SKILL.md` 已创建并实际用于客户评价规格；官方校验脚本缺少 PyYAML，基础结构检查和实际调用已完成，不宣称官方校验通过。
+- 新环境安装 Node.js 24、pnpm 11 后，在项目根目录运行 `pnpm install --frozen-lockfile`、`pnpm seed`、`pnpm dev`；检查使用 `pnpm test`、`pnpm typecheck`、`pnpm build`、`pnpm format:check`。生产入口为 `pnpm start`。
+- seed 当前补齐 6 个 Agent、6 个病症、8 对关联、8 个疗法和 9 对推荐，不填预约或真实反馈。所有新增内容整体提交或回滚。
+- 无登录或权限隔离；“员工页面”是用途而非访问控制。其他操作系统和原生模块安装路径未验证，不宣称跨平台可用。
+- 本地数据库、依赖、构建产物和 work 内证据均不上传；迁移与 seed 能重建示例，不能恢复真实录入数据。
+
+课程最后一节 [Agents replaceability](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files/blob/main/Video14_Agents_replaceability/prompts.md) 的实际任务是审查测试缺口。已核对迁移、业务规则、转义、日志和页面测试；后续优先补强独立进程启动失败/退出清理，以及可重复的跨页面浏览器测试。目前这两方面主要依赖已有手动运行记录；未执行其他编码代理的独立复跑，不据此宣称跨代理结果一致。关于页面仍是未承诺候选，本轮不继续扩展。
+
 Spec 驱动开发课程练习。当前实现最小 HTML 首页、可复用布局和本地 PicoCSS；阶段 2 已完成 SQLite 数据基础、示例数据、Agent 列表与详情，以及病症目录。阶段实现、功能验收、代码审查及测试补强已完成，Changelog 已更新。
 
 ## MVP 当前进度（2026-10-16）
