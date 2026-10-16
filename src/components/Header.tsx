@@ -22,6 +22,9 @@ export function Header() {
           <li>
             <a href="/feedback">反馈</a>
           </li>
+          <li>
+            <a href="/reviews">客户评价</a>
+          </li>
         </ul>
       </nav>
     </header>

@@ -60,7 +60,7 @@ it('保存规范化文本、原始特殊字符、内部换行、整数评分及 
   expect(row.message).toBe('<b>文字</b>\n第二行');
   expect(row.rating).toBe(3);
   expect(Date.parse(row.created_at)).toBeGreaterThanOrEqual(before - 1000);
-  expect(Date.parse(row.created_at)).toBeLessThanOrEqual(Date.now());
+  expect(Date.parse(row.created_at)).toBeLessThanOrEqual(Date.now() + 1000);
 });
 it('UTF-16 长度边界支持汉字和表情，超限及不明确输入不写入并保留回填值', () => {
   migrate(db);

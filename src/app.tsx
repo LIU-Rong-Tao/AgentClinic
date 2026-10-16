@@ -1,3 +1,5 @@
+import { Reviews } from './pages/Reviews.js';
+import { customerReviews } from './data/reviews.js';
 import { feedbackRouter } from './routes/feedback.js';
 import { ErrorPage } from './pages/ErrorPage.js';
 import {
@@ -41,6 +43,7 @@ export function createApp(
     }),
   );
   app.get('/', (c) => c.html(<Home />));
+  app.get('/reviews', (c) => c.html(<Reviews reviews={customerReviews} />));
   app.route('/agents', agentsRouter(db));
   app.route('/agents', appointmentsRouter(db, now));
   app.route('/ailments', ailmentsRouter(db));
