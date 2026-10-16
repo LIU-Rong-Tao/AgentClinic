@@ -19,6 +19,9 @@ export function Header() {
           <li>
             <a href="/dashboard">员工仪表盘</a>
           </li>
+          <li>
+            <a href="/feedback">反馈</a>
+          </li>
         </ul>
       </nav>
     </header>

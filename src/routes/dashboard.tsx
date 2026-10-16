@@ -1,3 +1,7 @@
+import {
+  FeedbackList,
+  type FeedbackRecord,
+} from '../components/FeedbackList.js';
 import { appointmentState } from '../appointments.js';
 import { Hono } from 'hono';
 import type Database from 'better-sqlite3';
@@ -33,6 +37,17 @@ export function dashboardRouter(
   );
   const update = db.prepare(
     "UPDATE appointments SET status='cancelled' WHERE id=? AND status='scheduled' AND starts_at > ?",
+  );
+  router.get('/feedback', (c) =>
+    c.html(
+      <FeedbackList
+        records={db
+          .prepare<[], FeedbackRecord>(
+            'SELECT id,nickname,message,rating,created_at FROM feedback ORDER BY created_at DESC,id DESC',
+          )
+          .all()}
+      />,
+    ),
   );
   router.get('/', (c) => {
     const view = c.req.query('view') ?? 'scheduled';

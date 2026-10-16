@@ -68,6 +68,7 @@ describe('病症与 Agent 关联', () => {
       '004_create_therapies.sql',
       '005_create_ailment_therapies.sql',
       '006_appointments.sql',
+      '007_feedback.sql',
     ]);
     expect(migrate(db)).toEqual([]);
     expect(snapshot(db)).toEqual({

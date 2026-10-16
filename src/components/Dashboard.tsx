@@ -32,6 +32,9 @@ export function Dashboard({
     <Layout title="员工仪表盘 · AgentClinic">
       <h2>员工仪表盘</h2>
       <p>
+        <a href="/dashboard/feedback">查看访客反馈</a>
+      </p>
+      <p>
         Agent 总数：{stats.agents} · 病症种类数：{stats.ailments} · 有效预约数：
         {stats.scheduled}
       </p>

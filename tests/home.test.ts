@@ -50,6 +50,7 @@ it('提供首页导航，并按基础样式、品牌样式的顺序加载本地 
     '/ailments',
     '/therapies',
     '/dashboard',
+    '/feedback',
   ]);
   expect(html).toMatch(
     /<footer>[\s\S]*?AgentClinic is open for business[\s\S]*?<\/footer>/,

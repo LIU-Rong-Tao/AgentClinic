@@ -1,3 +1,4 @@
+import { feedbackRouter } from './routes/feedback.js';
 import { ErrorPage } from './pages/ErrorPage.js';
 import {
   requestLogger,
@@ -45,5 +46,6 @@ export function createApp(
   app.route('/ailments', ailmentsRouter(db));
   app.route('/therapies', therapiesRouter(db));
   app.route('/dashboard', dashboardRouter(db, now));
+  app.route('/feedback', feedbackRouter(db));
   return app;
 }

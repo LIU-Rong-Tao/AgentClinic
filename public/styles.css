@@ -73,6 +73,7 @@ h1 {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+textarea:focus-visible,
 select:focus-visible,
 .agent-table-region:focus-visible,
 .ailment-table-region:focus-visible {
@@ -164,4 +165,9 @@ select:focus-visible,
   flex-direction: column;
   gap: 12px;
   margin-top: 12px;
+}
+
+.feedback-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }

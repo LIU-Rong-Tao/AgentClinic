@@ -49,6 +49,7 @@ it('升级旧三表时保留已有数据，追加后续迁移且不自动填充'
     '004_create_therapies.sql',
     '005_create_ailment_therapies.sql',
     '006_appointments.sql',
+    '007_feedback.sql',
   ]);
   expect(migrate(db)).toEqual([]);
   expect(snapshot()).toEqual([...old, [], []]);
@@ -127,7 +128,7 @@ it('同名不同 ID 冲突使五表新增整体回滚，已有记录与迁移保
   expect(() => seed(db)).toThrow('UNIQUE constraint failed');
   expect(snapshot()).toEqual(before);
   expect(db.prepare('SELECT COUNT(*) AS count FROM _migrations').get()).toEqual(
-    { count: 6 },
+    { count: 7 },
   );
   db.exec('DELETE FROM therapies WHERE id=99');
   expect(seed(db).therapies.inserted).toBe(8);
