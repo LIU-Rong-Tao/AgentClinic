@@ -9,17 +9,21 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "typecheck": "tsc --noEmit && tsc --project tsconfig.test.json",
-    "build": "tsc",
+    "build": "tsc && node scripts/copy-migrations.mjs",
     "start": "node dist/index.js",
+    "seed": "tsx src/db/run-seed.ts",
     "test": "vitest run",
-    "format:check": "prettier --check src tests public package.json tsconfig*.json",
-    "format": "prettier --write src tests public package.json tsconfig*.json"
+    "format:check": "prettier --check src tests public scripts package.json tsconfig*.json",
+    "format": "prettier --write src tests public scripts package.json tsconfig*.json"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.17",
+    "@picocss/pico": "2.1.1",
+    "better-sqlite3": "13.0.3",
     "hono": "^4.13.13"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "9.6.0",
     "@types/node": "^24.19.2",
     "prettier": "^3.9.10",
     "tsx": "^4.23.15",

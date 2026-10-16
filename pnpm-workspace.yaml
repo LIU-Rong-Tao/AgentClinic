@@ -1,3 +1,5 @@
 allowBuilds:
+  # 13.0.3 已附带本机可用的预编译模块，无需安装时重新编译。
+  better-sqlite3: false
   esbuild: true
 storeDir: work/pnpm-store

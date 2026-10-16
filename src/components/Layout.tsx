@@ -1,22 +1,29 @@
 import { html } from 'hono/html';
+import type { Child } from 'hono/jsx';
 import { Header } from './Header.js';
 import { Main } from './Main.js';
 import { Footer } from './Footer.js';
-export function Layout() {
+type LayoutProps = {
+  title: string;
+  children: Child;
+};
+
+export function Layout({ title, children }: LayoutProps) {
   return (
     <>
       {html`<!DOCTYPE html>`}
-      <html lang="zh-CN">
+      <html lang="zh-CN" data-theme="light">
         <head>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>AgentClinic · 给 AI 一点喘息空间</title>
+          <title>{title}</title>
+          <link rel="stylesheet" href="/vendor/pico.classless.min.css" />
           <link rel="stylesheet" href="/styles.css" />
         </head>
         <body>
           <div class="page">
             <Header />
-            <Main />
+            <Main>{children}</Main>
             <Footer />
           </div>
         </body>

@@ -1,10 +1,21 @@
-:root {
+:root[data-theme='light'] {
   color-scheme: light;
   --paper: #f5f2e9;
   --ink: #24211f;
   --muted: #5d5650;
   --brand: #b94700;
+  --brand-hover: #913800;
   --border: #cdc4ba;
+  --pico-background-color: var(--paper);
+  --pico-color: var(--ink);
+  --pico-muted-color: var(--muted);
+  --pico-primary: var(--brand);
+  --pico-primary-hover: var(--brand-hover);
+  --pico-primary-underline: var(--brand);
+  --pico-primary-hover-underline: var(--brand-hover);
+  --pico-primary-focus: rgba(185, 71, 0, 0.25);
+  --pico-font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  --pico-font-size: 100%;
 }
 * {
   box-sizing: border-box;
@@ -37,6 +48,64 @@ h1 {
   line-height: 1.9;
   margin: 0;
   color: var(--muted);
+}
+.site-nav {
+  margin-bottom: 24px;
+}
+.site-nav a {
+  min-height: 44px;
+  text-underline-offset: 0.2em;
+}
+a:focus-visible,
+.agent-table-region:focus-visible,
+.ailment-table-region:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+}
+.agent-table-region,
+.ailment-table-region {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.agent-detail {
+  overflow-wrap: anywhere;
+}
+.agent-table,
+.ailment-table {
+  width: 100%;
+  table-layout: fixed;
+  margin: 0;
+}
+.agent-table th,
+.agent-table td,
+.ailment-table th,
+.ailment-table td {
+  padding: 12px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.agent-table th:first-child {
+  width: 44%;
+}
+.ailment-table th:first-child {
+  width: 38%;
+}
+.agent-table th:nth-child(2) {
+  width: 30%;
+}
+@media (max-width: 480px) {
+  .agent-table th,
+  .agent-table td,
+  .ailment-table th,
+  .ailment-table td {
+    padding: 12px 8px;
+  }
+  .agent-table th:first-child {
+    width: 40%;
+  }
+  .agent-table th:nth-child(2) {
+    width: 28%;
+  }
 }
 .status {
   margin: 48px 0 0;
